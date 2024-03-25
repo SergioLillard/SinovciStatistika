@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Sinovci Statistika</title>
+  </head>
+  <body>
+    <h1>SINOVCI STATISTIKA</h1>
+
+    <div class="wrapper">
+      <form>
+        <fieldset id="fieldset-player" class="fieldset-short">
+          <legend>Dodaj igrača:</legend>
+          <div class="input-div">
+            <label for="name-input">Ime:</label>
+            <input type="text" name="name-input" id="name-input" />
+          </div>
+          <div class="input-div">
+            <label for="matches-input">Mečevi:</label>
+            <input type="number" name="matches-input" id="matches-input" />
+          </div>
+          <div class="input-div">
+            <label for="goals-input">Golovi:</label>
+            <input type="number" name="goals-input" id="goals-input" />
+          </div>
+          <div class="input-div">
+            <label for="assists-input">Asistencije:</label>
+            <input type="number" name="assists-input" id="assists-input" />
+          </div>
+        </fieldset>
+      </form>
+      <button id="add-player" class="button-black">Dodaj igrača</button>
+    </div>
+
+    <div class="wrapper">
+      <form>
+        <fieldset id="fieldset-stats" class="fieldset-short">
+          <legend>Dodaj statistiku:</legend>
+          <div class="input-div">
+            <label for="select-player">Igrač:</label>
+            <select id="select-player"></select>
+          </div>
+          <div class="input-div">
+            <label for="goal-or-assist">Doprinos</label>
+            <select id="goal-or-assist">
+              <option value="gol">Gol</option>
+              <option value="asistencija">Asistencija</option>
+              <option value="mečevi">Mečevi</option>
+            </select>
+          </div>
+          <div class="input-div">
+            <label for="quantity">Količina:</label>
+            <input type="number" name="quantity" id="quantity" />
+          </div>
+        </fieldset>
+      </form>
+
+      <button id="add-stats" class="button-black">Dodaj statistiku</button>
+    </div>
+
+    <div class="wrapper" id="add-remove-matches">
+      <form>
+        <fieldset class="fieldset-short">
+          <legend for="checkboxes">
+            Dodaj ili ukloni 1 meč odabranim igračima:
+          </legend>
+          <div id="checkboxes"></div>
+        </fieldset>
+      </form>
+
+      <div id="buttons-div">
+        <button id="add-matches" class="button-black">Dodaj 1 meč</button>
+        <button id="remove-matches" class="button-black">Ukloni 1 meč</button>
+      </div>
+    </div>
+
+    <main>
+      <div id="stats-showcase">
+        <table id="table">
+          <thead>
+            <th>
+              <div class="table-head">
+                <p>Igrač</p>
+                <button onclick="sortNames()">
+                  <img src="arrow-down.svg" id="arrow-names" class="arrow" />
+                </button>
+              </div>
+            </th>
+
+            <th>
+              <div class="table-head">
+                <p>Mečevi</p>
+                <button onclick="sortMatches()">
+                  <img src="arrow-down.svg" id="arrow-matches" class="arrow" />
+                </button>
+              </div>
+            </th>
+
+            <th>
+              <div class="table-head">
+                <p>Golovi</p>
+                <button onclick="sortGoals()">
+                  <img src="arrow-down.svg" id="arrow-goals" class="arrow" />
+                </button>
+              </div>
+            </th>
+
+            <th>
+              <div class="table-head">
+                <p>Golovi po meču</p>
+                <button onclick="sortGPM()">
+                  <img src="arrow-down.svg" id="arrow-gpm" class="arrow" />
+                </button>
+              </div>
+            </th>
+
+            <th>
+              <div class="table-head">
+                <p>Asistencije</p>
+                <button onclick="sortAst()">
+                  <img src="arrow-down.svg" id="arrow-ast" class="arrow" />
+                </button>
+              </div>
+            </th>
+
+            <th>
+              <div class="table-head">
+                <p>Asistencije po meču</p>
+                <button onclick="sortAPM()">
+                  <img src="arrow-down.svg" id="arrow-apm" class="arrow" />
+                </button>
+              </div>
+            </th>
+
+            <th>
+              <div class="table-head">
+                <p>Doprinos</p>
+                <button onclick="sortContribution()">
+                  <img
+                    src="arrow-down.svg"
+                    id="arrow-contribution"
+                    class="arrow"
+                  />
+                </button>
+              </div>
+            </th>
+
+            <th>
+              <div class="table-head">
+                <p>Doprinos po meču</p>
+                <button onclick="sortCPM()">
+                  <img src="arrow-down.svg" id="arrow-cpm" class="arrow" />
+                </button>
+              </div>
+            </th>
+
+            <th>Ukloni igrača</th>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
